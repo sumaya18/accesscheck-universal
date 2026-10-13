@@ -1,0 +1,10 @@
+{
+  "name": "accesscheck-universal",
+  "version": "1.0.0",
+  "description": "A local-first website accessibility scanner using Playwright, Chromium, and axe-core.",
+  "private": true,
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "test": "node --test" },
+  "engines": { "node": ">=20" },
+  "dependencies": { "axe-core": "^4.10.3", "express": "^4.21.2", "playwright": "^1.51.0" }
+}

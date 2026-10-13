@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Locally run website accessibility scanner using Playwright and axe-core.">
+  <title>AccessCheck Universal — Accessibility Scanner</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="AccessCheck Universal home"><span class="brand-mark" aria-hidden="true">A</span><span>AccessCheck <span class="brand-light">Universal</span></span></a>
+    <span class="local-pill"><span aria-hidden="true" class="dot"></span> Local scanner</span>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">WEB ACCESSIBILITY TOOLKIT</p>
+      <h1>Make the web work for everyone.</h1>
+      <p class="lede">Scan a public webpage for common accessibility issues, review the affected elements, and export a report to guide remediation.</p>
+      <form id="scan-form" class="scan-form">
+        <label for="url-input">Website URL</label>
+        <div class="url-row">
+          <input id="url-input" name="url" type="url" placeholder="https://example.com" autocomplete="url" required maxlength="2048" aria-describedby="url-help">
+          <button id="scan-button" type="submit"><span aria-hidden="true">⌕</span> Scan website</button>
+        </div>
+        <p id="url-help" class="hint">Public HTTP/HTTPS pages only. One page per scan; no login or multi-page crawling.</p>
+      </form>
+      <div class="examples"><span>Try:</span> <button type="button" class="example-link" data-url="https://www.w3.org/WAI/">W3C WAI</button><button type="button" class="example-link" data-url="https://example.com/">Example.com</button></div>
+    </section>
+
+    <section id="status-card" class="status-card" aria-live="polite" aria-atomic="true">
+      <span class="status-icon" aria-hidden="true">i</span><div><h2 id="status-title">Ready to scan</h2><p id="status-message">Enter a public URL above. The scanner runs on your laptop.</p></div>
+    </section>
+
+    <section id="results" class="results hidden" aria-labelledby="results-heading">
+      <div class="results-heading">
+        <div><p class="eyebrow">SCAN REPORT</p><h2 id="results-heading">Accessibility findings</h2><p id="scan-meta" class="hint"></p></div>
+        <button id="download-button" class="secondary-button" type="button">Download JSON report</button>
+      </div>
+      <div class="stats">
+        <article class="stat"><span>Violations</span><strong id="violations-count">0</strong></article>
+        <article class="stat"><span>Passes</span><strong id="passes-count">0</strong></article>
+        <article class="stat"><span>Needs manual review</span><strong id="incomplete-count">0</strong></article>
+        <article class="stat"><span>Affected nodes</span><strong id="nodes-count">0</strong></article>
+      </div>
+      <div class="section-heading"><h3>Violations</h3><label for="impact-filter">Filter <select id="impact-filter"><option value="all">All impact levels</option><option value="critical">Critical</option><option value="serious">Serious</option><option value="moderate">Moderate</option><option value="minor">Minor</option></select></label></div>
+      <div id="violations-list" class="finding-list"></div>
+      <details class="manual-review"><summary>Checks that may need manual review (<span id="incomplete-summary-count">0</span>)</summary><div id="incomplete-list"></div></details>
+      <details class="manual-review"><summary>Requests blocked by safety rules (<span id="blocked-count">0</span>)</summary><div id="blocked-list"></div></details>
+    </section>
+
+    <section class="how">
+      <div><p class="eyebrow">HOW IT WORKS</p><h2>One page. Practical findings.</h2></div>
+      <div class="how-grid">
+        <article><span>01</span><h3>Open the page</h3><p>Playwright loads the page in a headless Chromium browser.</p></article>
+        <article><span>02</span><h3>Run checks</h3><p>axe-core checks a set of WCAG-related rules against the rendered page.</p></article>
+        <article><span>03</span><h3>Review and fix</h3><p>Inspect selectors, code snippets, impact, guidance links, and manual-review items.</p></article>
+      </div>
+    </section>
+    <footer><p>AccessCheck Universal · Learning project</p><p>Automated checks cannot certify full WCAG conformance. Always add manual keyboard, screen-reader, zoom/reflow, and task-based testing.</p></footer>
+  </main>
+</body>
+</html>
