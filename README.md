@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # AccessCheck Universal
 
 **A local-first website accessibility auditing tool built with Node.js, Express, Playwright, Chromium, and axe-core.**
