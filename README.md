@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AccessCheck Universal
 
 **A local-first website accessibility auditing tool built with Node.js, Express, Playwright, Chromium, and axe-core.**
@@ -118,3 +119,7 @@ Automated results are not a full WCAG conformance assessment. A zero-violation r
 ## License
 
 Released under the MIT License. See [`LICENSE`](LICENSE).
+=======
+# accesscheck-universal
+Automated web accessibility auditing tool built with JavaScript, Node.js, Express.js, Playwright, and axe-core.
+>>>>>>> 631e1c04a40d7ca64f1865e53ce6ee6bc62df103
